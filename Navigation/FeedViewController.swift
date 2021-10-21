@@ -1,19 +1,16 @@
 //
-//  ViewController.swift
+//  FeedViewController.swift
 //  Navigation
 //
-//  Created by Георгий Бондаренко on 20.10.2021.
+//  Created by Георгий Бондаренко on 21.10.2021.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class FeedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
     }
-
-
 }
-
