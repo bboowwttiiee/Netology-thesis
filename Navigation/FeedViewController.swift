@@ -8,9 +8,16 @@
 import UIKit
 
 class FeedViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+    }
+    
+    override func loadView() {
+        let view = FeedView(post: self.getPost(), frame: CGRect())
+        self.view = view
+    }
+    
+    private func getPost()->Post {
+        return Post(title: "Post title")
     }
 }
