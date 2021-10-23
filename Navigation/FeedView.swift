@@ -23,7 +23,6 @@ class FeedView: UIView {
     }()
     
     
-    
     public init(post: Post, frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .red
@@ -47,6 +46,10 @@ class FeedView: UIView {
             withVisualFormat: "H:|-[buttonView]-|", metrics: nil, views: views)
         constraintArray += NSLayoutConstraint.constraints(
             withVisualFormat: "V:|-[buttonView]-|", metrics: nil, views: views)
+        constraintArray += NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|[button]|", metrics: nil, views: views)
+        constraintArray += NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|[button]|", metrics: nil, views: views)
         NSLayoutConstraint.activate(constraintArray)
     }
     

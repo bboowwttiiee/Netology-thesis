@@ -8,13 +8,31 @@
 import UIKit
 
 class FeedViewController: UIViewController {
+    weak var parentNavigationController: UINavigationController?
+    
+    public init(parentNavigationController: UINavigationController?) {
+        super.init(nibName: nil, bundle: nil)
+        self.parentNavigationController = parentNavigationController
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func loadView() {
-        let view = FeedView(post: self.getPost(), frame: CGRect())
+        let post = self.getPost()
+        let view = FeedView(post: post, frame: CGRect())
+        view.button.addTarget(self, action: #selector(openPost), for: .touchUpInside)
         self.view = view
+    }
+    
+    @objc private func openPost() {
+        print("Test")
+        parentNavigationController?.pushViewController(PostViewController(post: self.getPost()), animated: true)
+        print("move")
     }
     
     private func getPost()->Post {
