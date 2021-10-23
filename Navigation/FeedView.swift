@@ -9,9 +9,16 @@ import UIKit
 
 class FeedView: UIView {
     
-    var buttonView = UIView()
+    var buttonView: UIView = {
+        let buttonView = UIView()
+        buttonView.backgroundColor = .red
+        return buttonView;
+    }()
     var button: UIButton = {
         let button = UIButton(frame: .zero)
+        button.backgroundColor = .white
+        button.setTitleColor(.red, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
@@ -21,9 +28,8 @@ class FeedView: UIView {
         super.init(frame: frame)
         self.backgroundColor = .red
         addSubview(buttonView)
-        buttonView.backgroundColor = .white
-//        buttonView.translatesAutoresizingMaskIntoConstraints = false
-//        button.setTitle(post.title, for: .normal)
+        buttonView.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(post.title, for: .normal)
         buttonView.addSubview(button)
         configureLayout()
         
@@ -38,9 +44,9 @@ class FeedView: UIView {
         var constraintArray: [NSLayoutConstraint] = []
         
         constraintArray += NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-20-[buttonView]-20-|", metrics: nil, views: views)
-//        constraintArray += NSLayoutConstraint.constraints(
-//            withVisualFormat: "V:|-[shadow]-|", metrics: nil, views: views)
+            withVisualFormat: "H:|-[buttonView]-|", metrics: nil, views: views)
+        constraintArray += NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|-[buttonView]-|", metrics: nil, views: views)
         NSLayoutConstraint.activate(constraintArray)
     }
     
