@@ -16,7 +16,6 @@ class InfoView: UIView {
         return button
     }()
     
-    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .green
@@ -37,8 +36,8 @@ class InfoView: UIView {
         let horizontalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
         let verticalConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: self, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
         NSLayoutConstraint.activate(widthConstraints)
-            NSLayoutConstraint.activate(heightConstraints)
-            NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
+        NSLayoutConstraint.activate(heightConstraints)
+        NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])
     }
     
     required init?(coder: NSCoder) {

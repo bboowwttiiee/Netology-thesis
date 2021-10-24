@@ -12,12 +12,12 @@ class InfoViewController: UIViewController {
         let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default) {
             UIAlertAction in
-            print("Pressed OK")
+            print("Pressed OK action")
         }
         alert.addAction(okAction)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default) {
             UIAlertAction in
-            print("Pressed Cancel")
+            print("Pressed Cancel action")
         }
         alert.addAction(cancelAction)
         return alert

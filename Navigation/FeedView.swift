@@ -12,6 +12,7 @@ class FeedView: UIView {
     var buttonView: UIView = {
         let buttonView = UIView()
         buttonView.backgroundColor = .red
+        buttonView.translatesAutoresizingMaskIntoConstraints = false
         return buttonView;
     }()
     var button: UIButton = {
@@ -27,7 +28,6 @@ class FeedView: UIView {
         super.init(frame: frame)
         self.backgroundColor = .red
         addSubview(buttonView)
-        buttonView.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(post.title, for: .normal)
         buttonView.addSubview(button)
         configureLayout()
