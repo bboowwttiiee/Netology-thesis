@@ -30,9 +30,7 @@ class FeedViewController: UIViewController {
     }
     
     @objc private func openPost() {
-        print("Test")
         parentNavigationController?.pushViewController(PostViewController(post: self.getPost()), animated: true)
-        print("move")
     }
     
     private func getPost()->Post {

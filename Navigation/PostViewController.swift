@@ -16,8 +16,8 @@ class PostViewController: UIViewController {
         let infoButtonItem = UIBarButtonItem(
             title: "Info",
             style: UIBarButtonItem.Style.plain,
-            target: nil,
-            action: nil
+            target: self,
+            action: #selector(showInfoModal)
         )
         navigationItem.rightBarButtonItem = infoButtonItem
     }
@@ -30,5 +30,10 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         self.title = post.title
         view.backgroundColor = .white
+    }
+    
+    @objc private func showInfoModal() {
+        let infoModal = InfoViewController()
+        present(infoModal, animated: true, completion: nil)
     }
 }
