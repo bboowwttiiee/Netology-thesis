@@ -12,6 +12,8 @@
 		413519402721CA4D009739D1 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4135193F2721CA4D009739D1 /* FeedView.swift */; };
 		4135194327252072009739D1 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4135194227252071009739D1 /* InfoViewController.swift */; };
 		4135194627252C6B009739D1 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4135194527252C6B009739D1 /* InfoView.swift */; };
+		4135194D272673A7009739D1 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4135194C272673A7009739D1 /* ProfileHeaderView.swift */; };
+		41E28911272679C400DFDF59 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E28910272679C400DFDF59 /* Profile.swift */; };
 		41E6CD0E272075F60030EF9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6CD0D272075F60030EF9A /* AppDelegate.swift */; };
 		41E6CD10272075F60030EF9A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E6CD0F272075F60030EF9A /* SceneDelegate.swift */; };
 		41E6CD17272075F90030EF9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E6CD16272075F90030EF9A /* Assets.xcassets */; };
@@ -26,6 +28,8 @@
 		4135193F2721CA4D009739D1 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		4135194227252071009739D1 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		4135194527252C6B009739D1 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		4135194C272673A7009739D1 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		41E28910272679C400DFDF59 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		41E6CD0A272075F60030EF9A /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41E6CD0D272075F60030EF9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		41E6CD0F272075F60030EF9A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +51,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4135194B27267386009739D1 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				41E6CD2827213DF00030EF9A /* ProfileViewController.swift */,
+				4135194C272673A7009739D1 /* ProfileHeaderView.swift */,
+				41E28910272679C400DFDF59 /* Profile.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		41E6CD01272075F50030EF9A = {
 			isa = PBXGroup;
 			children = (
@@ -66,13 +80,13 @@
 		41E6CD0C272075F60030EF9A /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				4135194B27267386009739D1 /* Profile */,
 				41E6CD0D272075F60030EF9A /* AppDelegate.swift */,
 				41E6CD0F272075F60030EF9A /* SceneDelegate.swift */,
 				41E6CD16272075F90030EF9A /* Assets.xcassets */,
 				41E6CD18272075F90030EF9A /* LaunchScreen.storyboard */,
 				41E6CD1B272075F90030EF9A /* Info.plist */,
 				41E6CD2527213DCF0030EF9A /* FeedViewController.swift */,
-				41E6CD2827213DF00030EF9A /* ProfileViewController.swift */,
 				413519392721C6EE009739D1 /* PostViewController.swift */,
 				4135193C2721C798009739D1 /* Post.swift */,
 				4135193F2721CA4D009739D1 /* FeedView.swift */,
@@ -158,6 +172,8 @@
 				41E6CD2927213DF00030EF9A /* ProfileViewController.swift in Sources */,
 				41E6CD2627213DCF0030EF9A /* FeedViewController.swift in Sources */,
 				4135193D2721C798009739D1 /* Post.swift in Sources */,
+				4135194D272673A7009739D1 /* ProfileHeaderView.swift in Sources */,
+				41E28911272679C400DFDF59 /* Profile.swift in Sources */,
 				4135194627252C6B009739D1 /* InfoView.swift in Sources */,
 				41E6CD10272075F60030EF9A /* SceneDelegate.swift in Sources */,
 			);
