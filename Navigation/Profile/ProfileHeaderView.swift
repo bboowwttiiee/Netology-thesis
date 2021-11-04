@@ -8,47 +8,54 @@
 import UIKit
 
 class ProfileHeaderView: UIView {
-    var profileImage: UIImage?
-    var profileTitle: UITextView?
-    var profileTextInput: UITextInput?
-    var showStatusButton: UIButton?
     var profile: Profile
+    fileprivate let NavBarPadding = 91;
     
     public init(profile: Profile, frame: CGRect) {
         self.profile = profile
         super.init(frame: frame)
         print("Profile: \(self.profile.name), \(self.profile.state), \(self.profile.imageSrc)")
-        initProfileTitle()
-        configureLayout()
-    }
-    
-    fileprivate func initProfileTitle() {
-        profileTitle = {
-            let profileTitle = UITextView()
-            profileTitle.text = profile.name
-            profileTitle.translatesAutoresizingMaskIntoConstraints = false
-            return profileTitle
-        }()
-        if profileTitle != nil {
-            addSubview(profileTitle!)
-        }
-    }
-    
-    func configureLayout() {
-        let views: [String: Any] = [
-            "superView": self,
-//            "profileImage": profileImage,
-            "profileTitle": profileTitle,
-//            "profileTextInput": profileTextInput,
-//            "showStatusButton": showStatusButton
-        ]
-        var constraintArray: [NSLayoutConstraint] = []
+        let image = UIImage(named: profile.imageSrc)
+        let profileImage = UIImageView()
+        profileImage.image = image
+        let imageSize = 100
+        profileImage.frame = CGRect(origin: CGPoint(x: 16, y: NavBarPadding + 16), size: CGSize(width: imageSize, height: imageSize))
+        profileImage.layer.masksToBounds = true
+        profileImage.layer.cornerRadius = profileImage.bounds.height / 2
+        profileImage.layer.borderWidth = 3
+        profileImage.layer.borderColor = UIColor.white.cgColor
+        addSubview(profileImage)
+
+        let textWidth = frame.width - profileImage.frame.maxX - 32
         
-        constraintArray += NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-[profileTitle]-|", metrics: nil, views: views)
-        constraintArray += NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-[profileTitle]-|", metrics: nil, views: views)
-        NSLayoutConstraint.activate(constraintArray)
+        
+        let profileTitle = UILabel()
+        let profileTitleFontSize = 18
+        profileTitle.frame = CGRect(origin: CGPoint(x: Int(profileImage.frame.maxX) + 16, y: NavBarPadding + 27), size: CGSize(width: Int(textWidth), height: profileTitleFontSize))
+        profileTitle.font = UIFont.systemFont(ofSize: CGFloat(profileTitleFontSize), weight: .bold)
+        profileTitle.textColor = .black
+        profileTitle.text = profile.name
+        addSubview(profileTitle)
+        
+        let showStatusButton = UIButton()
+        showStatusButton.frame = CGRect(origin: CGPoint(x: 16, y: Int(profileImage.frame.maxY) + 16), size: CGSize(width: frame.width - 32, height: 50))
+        showStatusButton.layer.cornerRadius = 4
+        showStatusButton.backgroundColor = UIColor(red: CGFloat(0.0/0.0), green: CGFloat(122.0/255.0), blue: CGFloat(254.0/255.0), alpha: CGFloat(1.0))
+        showStatusButton.setTitleColor(.white, for: .normal)
+        showStatusButton.setTitle("Show status", for: .normal)
+        showStatusButton.layer.shadowOpacity = 0.7
+        showStatusButton.layer.shadowOffset = CGSize(width: 4, height: 4)
+        showStatusButton.layer.shadowColor = UIColor.black.cgColor
+        showStatusButton.layer.shadowRadius = CGFloat(4)
+        addSubview(showStatusButton)
+        
+        let profileTextField = UITextField()
+        let profileTextFieldFontSize = 14
+        profileTextField.frame = CGRect(origin: CGPoint(x: Int(profileImage.frame.maxX) + 16, y: Int(showStatusButton.frame.minY) - (34 + profileTextFieldFontSize)), size: CGSize(width: Int(textWidth), height: profileTextFieldFontSize))
+        profileTextField.text = profile.state
+        profileTextField.textColor = .gray
+        profileTextField.font = UIFont.systemFont(ofSize: CGFloat(profileTextFieldFontSize), weight: .regular)
+        addSubview(profileTextField)
     }
     
     required init?(coder: NSCoder) {

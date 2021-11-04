@@ -25,6 +25,6 @@ class ProfileViewController: UIViewController {
     }
     
     private func getProfile() -> Profile {
-        return Profile(name: "Hipster cat", imageSrc: "", state: "some state")
+        return Profile(name: "Hipster cat", imageSrc: "cat-avatar.png", state: "some state")
     }
 }
