@@ -8,13 +8,18 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    let profile: Profile = {
+        return Profile(name: "Hipster cat", imageSrc: "cat-avatar.png", state: "some state")
+    }()
+    
     
     open override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let profileHeaderView = ProfileHeaderView(
-            profile: self.getProfile(),
+            profile: self.profile,
             frame: view.frame
         )
+        profileHeaderView.showStatusButton.addTarget(self, action: #selector(printProfileState), for: .touchUpInside)
         view.addSubview(profileHeaderView)
     }
 
@@ -24,7 +29,8 @@ class ProfileViewController: UIViewController {
         self.title = "Profile"
     }
     
-    private func getProfile() -> Profile {
-        return Profile(name: "Hipster cat", imageSrc: "cat-avatar.png", state: "some state")
+    @objc private func printProfileState()
+    {
+        print(profile.state)
     }
 }

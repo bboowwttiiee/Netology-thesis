@@ -8,8 +8,9 @@
 import UIKit
 
 class ProfileHeaderView: UIView {
-    var profile: Profile
     fileprivate let NavBarPadding = 91;
+    var profile: Profile
+    var showStatusButton: UIButton = UIButton()
     
     public init(profile: Profile, frame: CGRect) {
         self.profile = profile
@@ -37,7 +38,6 @@ class ProfileHeaderView: UIView {
         profileTitle.text = profile.name
         addSubview(profileTitle)
         
-        let showStatusButton = UIButton()
         showStatusButton.frame = CGRect(origin: CGPoint(x: 16, y: Int(profileImage.frame.maxY) + 16), size: CGSize(width: frame.width - 32, height: 50))
         showStatusButton.layer.cornerRadius = 4
         showStatusButton.backgroundColor = UIColor(red: CGFloat(0.0/0.0), green: CGFloat(122.0/255.0), blue: CGFloat(254.0/255.0), alpha: CGFloat(1.0))
