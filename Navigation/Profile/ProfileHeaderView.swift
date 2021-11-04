@@ -49,13 +49,13 @@ class ProfileHeaderView: UIView {
         showStatusButton.layer.shadowRadius = CGFloat(4)
         addSubview(showStatusButton)
         
-        let profileTextField = UITextField()
+        let profileStateLabel = UILabel()
         let profileTextFieldFontSize = 14
-        profileTextField.frame = CGRect(origin: CGPoint(x: Int(profileImage.frame.maxX) + 16, y: Int(showStatusButton.frame.minY) - (34 + profileTextFieldFontSize)), size: CGSize(width: Int(textWidth), height: profileTextFieldFontSize))
-        profileTextField.text = profile.state
-        profileTextField.textColor = .gray
-        profileTextField.font = UIFont.systemFont(ofSize: CGFloat(profileTextFieldFontSize), weight: .regular)
-        addSubview(profileTextField)
+        profileStateLabel.frame = CGRect(origin: CGPoint(x: Int(profileImage.frame.maxX) + 16, y: Int(showStatusButton.frame.minY) - (34 + profileTextFieldFontSize)), size: CGSize(width: Int(textWidth), height: profileTextFieldFontSize))
+        profileStateLabel.text = profile.state
+        profileStateLabel.textColor = .gray
+        profileStateLabel.font = UIFont.systemFont(ofSize: CGFloat(profileTextFieldFontSize), weight: .regular)
+        addSubview(profileStateLabel)
     }
     
     required init?(coder: NSCoder) {
