@@ -20,7 +20,7 @@ class ProfileViewController: UIViewController {
             frame: view.frame
         )
         profileHeaderView.setStatusButton.addTarget(self, action: #selector(printProfileState), for: .touchUpInside)
-        profileHeaderView.stateTextField.addTarget(self, action: #selector(changeProfileState), for: .editingChanged)
+        profileHeaderView.statusTextField.addTarget(self, action: #selector(changeProfileState), for: .editingChanged)
         view.addSubview(profileHeaderView)
         self.profileHeaderView = profileHeaderView
     }
@@ -33,8 +33,8 @@ class ProfileViewController: UIViewController {
     
     @objc private func printProfileState()
     {
-        self.profileHeaderView?.profileStateLabel.text = profile.state
-        self.profileHeaderView?.profileStateLabel.setNeedsDisplay()
+        self.profileHeaderView?.statusLabel.text = profile.state
+        self.profileHeaderView?.statusLabel.setNeedsDisplay()
     }
     
     @objc private func changeProfileState(_ textField: UITextField)

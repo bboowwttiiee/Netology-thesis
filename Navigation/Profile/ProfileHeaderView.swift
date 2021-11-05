@@ -10,6 +10,21 @@ import UIKit
 class ProfileHeaderView: UIView {
     fileprivate let NavBarPadding = 91;
     var profile: Profile
+    
+    var avatarImageView: UIImageView = {
+        let avatarImageView = UIImageView()
+        
+        return avatarImageView
+    }()
+    
+    var fullNameLabel: UILabel = {
+        let fullNameLabel = UILabel()
+        
+        return fullNameLabel
+    }()
+    
+    
+    
     var setStatusButton: UIButton = {
         let showStatusButton = UIButton()
         showStatusButton.layer.cornerRadius = 4
@@ -23,7 +38,7 @@ class ProfileHeaderView: UIView {
         
         return showStatusButton
     }()
-    var stateTextField: UITextField = {
+    var statusTextField: UITextField = {
         let stateTextField = UITextField()
         stateTextField.backgroundColor = .white
         stateTextField.layer.cornerRadius = 12
@@ -39,7 +54,7 @@ class ProfileHeaderView: UIView {
         return stateTextField
     }()
     
-    var profileStateLabel: UILabel = {
+    var statusLabel: UILabel = {
         let profileStateLabel = UILabel()
         profileStateLabel.textColor = .gray
         
@@ -53,37 +68,35 @@ class ProfileHeaderView: UIView {
         super.init(frame: frame)
         print("Profile: \(self.profile.name), \(self.profile.state), \(self.profile.imageSrc)")
         let image = UIImage(named: profile.imageSrc)
-        let profileImage = UIImageView()
-        profileImage.image = image
+        avatarImageView.image = image
         let imageSize = 100
-        profileImage.frame = CGRect(origin: CGPoint(x: 16, y: NavBarPadding + 16), size: CGSize(width: imageSize, height: imageSize))
-        profileImage.layer.masksToBounds = true
-        profileImage.layer.cornerRadius = profileImage.bounds.height / 2
-        profileImage.layer.borderWidth = 3
-        profileImage.layer.borderColor = UIColor.white.cgColor
-        addSubview(profileImage)
+        avatarImageView.frame = CGRect(origin: CGPoint(x: 16, y: NavBarPadding + 16), size: CGSize(width: imageSize, height: imageSize))
+        avatarImageView.layer.masksToBounds = true
+        avatarImageView.layer.cornerRadius = avatarImageView.bounds.height / 2
+        avatarImageView.layer.borderWidth = 3
+        avatarImageView.layer.borderColor = UIColor.white.cgColor
+        addSubview(avatarImageView)
 
-        let textWidth = frame.width - profileImage.frame.maxX - 32
+        let textWidth = frame.width - avatarImageView.frame.maxX - 32
         
         
-        let profileTitle = UILabel()
         let profileTitleFontSize = 18
-        profileTitle.frame = CGRect(origin: CGPoint(x: Int(profileImage.frame.maxX) + 16, y: NavBarPadding + 27), size: CGSize(width: Int(textWidth), height: profileTitleFontSize))
-        profileTitle.font = UIFont.systemFont(ofSize: CGFloat(profileTitleFontSize), weight: .bold)
-        profileTitle.textColor = .black
-        profileTitle.text = profile.name
-        addSubview(profileTitle)
+        fullNameLabel.frame = CGRect(origin: CGPoint(x: Int(avatarImageView.frame.maxX) + 16, y: NavBarPadding + 27), size: CGSize(width: Int(textWidth), height: profileTitleFontSize))
+        fullNameLabel.font = UIFont.systemFont(ofSize: CGFloat(profileTitleFontSize), weight: .bold)
+        fullNameLabel.textColor = .black
+        fullNameLabel.text = profile.name
+        addSubview(fullNameLabel)
         
         let profileTextFieldFontSize = 14
-        profileStateLabel.frame = CGRect(origin: CGPoint(x: Int(profileImage.frame.maxX) + 16, y: Int(profileImage.frame.maxY) - (18 + profileTextFieldFontSize)), size: CGSize(width: Int(textWidth), height: profileTextFieldFontSize))
-        profileStateLabel.font = UIFont.systemFont(ofSize: CGFloat(profileTextFieldFontSize), weight: .regular)
-        profileStateLabel.text = profile.state
-        addSubview(profileStateLabel)
+        statusLabel.frame = CGRect(origin: CGPoint(x: Int(avatarImageView.frame.maxX) + 16, y: Int(avatarImageView.frame.maxY) - (18 + profileTextFieldFontSize)), size: CGSize(width: Int(textWidth), height: profileTextFieldFontSize))
+        statusLabel.font = UIFont.systemFont(ofSize: CGFloat(profileTextFieldFontSize), weight: .regular)
+        statusLabel.text = profile.state
+        addSubview(statusLabel)
         
-        stateTextField.frame = CGRect(origin: CGPoint(x: Int(profileImage.frame.maxX) + 16, y: Int(profileStateLabel.frame.maxY) + 16), size: CGSize(width: Int(textWidth), height: 40))
-        addSubview(stateTextField)
+        statusTextField.frame = CGRect(origin: CGPoint(x: Int(avatarImageView.frame.maxX) + 16, y: Int(statusLabel.frame.maxY) + 16), size: CGSize(width: Int(textWidth), height: 40))
+        addSubview(statusTextField)
         
-        setStatusButton.frame = CGRect(origin: CGPoint(x: 16, y: Int(stateTextField.frame.maxY) + 16), size: CGSize(width: frame.width - 32, height: 50))
+        setStatusButton.frame = CGRect(origin: CGPoint(x: 16, y: Int(statusTextField.frame.maxY) + 16), size: CGSize(width: frame.width - 32, height: 50))
         addSubview(setStatusButton)
     }
     
